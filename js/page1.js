@@ -61,6 +61,7 @@ function myMove() {
             if (objList[i].location == 0 && objList[i].deleted == 0){
                 objList[i].deletObj();
                 pts++;
+                
             }
             let r;
             if (objList[i].location > 70 && objList[i].location < 120){
