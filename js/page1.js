@@ -37,30 +37,48 @@ function myMove() {
     var pos = 70;
     var objList = [];
     var pts = 0
+    var control = 2;
+    var control2 = 200; 
     clearInterval(id);
     id = setInterval(frame, 10);
     function frame() {
-        if (pts == 50){
+        if (pts == 75){
             clearInterval(id);
             window.location.href = "./page2.html";
             return;
+        }else if(pts == 10){
+            control2 = 175;
+        }else if(pts == 20){
+            control2 = 150;
+        }else if(pts == 30){
+            control2 = 125;
+        }else if(pts == 40){
+            control2 = 100;
+        }else if(pts == 60){
+            control2 = 75;
         }
+        
+        
+        
         var elem = document.getElementById("top");   
         var elem2 = document.getElementById("down");
-        pos = pos + 2; 
+        var pionts = document.getElementById("points");
+        pos = pos + control; 
         elem.style.backgroundPositionX = -pos + 'px';
         elem2.style.backgroundPositionX = -pos + 'px';
-        if(random(1,175) == 50){
+        if(random(1,control2) == 50){
             let nObj = new Object(random(1, 3),objList.length,750);
             nObj.criaObj(map);
             objList.push(nObj);
         }
         let player = document.getElementById("player");
         for(i = 0; i < objList.length; i++){
-            objList[i].moveObj(2);
-            if (objList[i].location == 0 && objList[i].deleted == 0){
+            objList[i].moveObj(control);
+            if (objList[i].location < 0 && objList[i].deleted == 0){
                 objList[i].deletObj();
                 pts++;
+                control = control + 0.15;
+                pionts.innerText = "Pontos: "+ pts +"/75";
                 
             }
             let r;
@@ -94,7 +112,6 @@ function myMove() {
                 }
             }
         }
-        
     }
 }
 
