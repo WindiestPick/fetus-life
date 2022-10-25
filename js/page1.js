@@ -42,7 +42,7 @@ function myMove() {
     clearInterval(id);
     id = setInterval(frame, 10);
     function frame() {
-        if (pts == 75){
+        if (pts == 70){
             clearInterval(id);
             window.location.href = "./page2.html";
             return;
@@ -78,7 +78,7 @@ function myMove() {
                 objList[i].deletObj();
                 pts++;
                 control = control + 0.15;
-                pionts.innerText = "Pontos: "+ pts +"/75";
+                pionts.innerText = "Pontos: "+ pts +"/70";
                 
             }
             let r;
