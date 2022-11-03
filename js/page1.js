@@ -118,7 +118,7 @@ function myMove() {
 var calc = 275;
 document.addEventListener('keydown', function(event) {
     var elem3 = document.getElementById("player");  
-    if(event.keyCode == 38) {
+    if(event.keyCode == 38 || event.keyCode == 87) {
         calc = calc - 75;
         if(calc > 175){
             elem3.style.top = calc + "px";
@@ -126,7 +126,7 @@ document.addEventListener('keydown', function(event) {
             calc = calc + 75;
         }
     }
-    else if(event.keyCode == 40) {
+    else if(event.keyCode == 40 || event.keyCode == 83) {
         calc = calc + 75;
         if(calc < 425){
             elem3.style.top = calc + "px";
